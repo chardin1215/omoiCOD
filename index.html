@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmoiCOD</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<body>
+    <div class="ad-panel left">
+        <div class="ad-content">
+            <img src="./images/razik-1.png" alt="Ad 1">
+            <img src="./images/razik-2.png" alt="Ad 2">
+            <img src="./images/razik-3.png" alt="Ad 3">
+            <img src="./images/razik-4.png" alt="Ad 4">
+            <img src="./images/razik-5.png" alt="Ad 5">
+            <img src="./images/razik-6.png" alt="Ad 6">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>OmoiCOD</h1>
+            <p class="tagline">Follow the grind. Join the wave.</p>
+
+            <div class="twitch-player">
+                <iframe
+                    src="https://player.twitch.tv/?channel=omoicod&parent=localhost"
+                    allowfullscreen
+                    frameborder="0">
+                </iframe>
+            </div>
+
+            <div class="social-links">
+                <a href="https://tiktok.com/curtisrazik" target="_blank" class="social-btn">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+                <a href="https://twitch.tv/omoicod" target="_blank" class="social-btn">
+                    <i class="fab fa-twitch"></i> Twitch
+                </a>
+                <a href="https://youtube.com/omoiCOD" target="_blank" class="social-btn">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ad-panel right">
+        <div class="ad-content">
+            <img src="./images/razik-7.png" alt="Ad 7">
+            <img src="./images/razik-8.png" alt="Ad 8">
+            <img src="./images/razik-9.png" alt="Ad 9">
+            <img src="./images/razik-10.png" alt="Ad 10">
+            <img src="./images/razik-11.png" alt="Ad 11">
+            <img src="./images/razik-12.png" alt="Ad 12">
+        </div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
+
+<script>
+    const panels = document.querySelectorAll('.ad-content');
+    const scrollSpeed = 0.5; 
+    panels.forEach(panel => {
+        let offset = 0;
+    
+        const animate = () => {
+            offset -= scrollSpeed;
+            panel.style.transform = `translateY(${offset}px)`;
+    
+            const firstImg = panel.querySelector('img');
+            
+            if (firstImg) {
+                const imgHeight = firstImg.offsetHeight + 16;
+    
+                if (Math.abs(offset) >= imgHeight) {
+                    panel.appendChild(firstImg);
+                    offset += imgHeight;
+                    panel.style.transform = `translateY(${offset}px)`;
+                }
+            }
+    
+            requestAnimationFrame(animate);
+        };
+    
+        animate();
+    });
+</script>
+    
+  
